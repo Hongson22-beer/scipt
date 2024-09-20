@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phép Toán</title>
+    <link rel="stylesheet" href="stayy.css">
+</head>
+<body>
+    <h1>Tính Các Phép Toán</h1>
+    <div class="calculator">
+        <label for="a">Số a:</label>
+        <input type="number" id="a" placeholder="Nhập a"><br><br>
+
+        <label for="b">Số b:</label>
+        <input type="number" id="b" placeholder="Nhập b"><br><br>
+
+        <button onclick="calculate('sum')">Tổng</button>
+        <button onclick="calculate('subtract')">Hiệu</button>
+        <button onclick="calculate('multiply')">Tích</button>
+        <button onclick="calculate('divide')">Thương</button>
+
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function calculate(operation) {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            let result = '';
+
+            if (isNaN(a) || isNaN(b)) {
+                result = 'Vui lòng nhập số hợp lệ.';
+            } else {
+                switch (operation) {
+                    case 'sum':
+                        result = 'Tổng: ' + (a + b);
+                        break;
+                    case 'subtract':
+                        result = 'Hiệu: ' + (a - b);
+                        break;
+                    case 'multiply':
+                        result = 'Tích: ' + (a * b);                                                                                                                         
+                        break;
+                    case 'divide':
+                        if (b === 0) {
+                            result = 'Không thể chia cho 0.';
+                        } else {
+                            result = 'Thương: ' + (a / b);
+                        }
+                        break;
+                    default:
+                        result = 'Phép toán không hợp lệ.';
+                }
+            }
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+        <a href="giaiphuongtrinh.html">tính phương trình bậc nhất </a> <br>
+        <a href="tinhngaythang.html">tính ngày của năm</a>
+</body>
+</html>
